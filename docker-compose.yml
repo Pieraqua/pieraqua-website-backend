@@ -1,0 +1,13 @@
+version: '1.0'
+
+services:
+  pieraqua-frontend:
+      image: pieraqua-website/backend-app
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      environment:
+        NODE_ENV: production
+        PORT: 3000
+      ports:
+        - 3000:3000
