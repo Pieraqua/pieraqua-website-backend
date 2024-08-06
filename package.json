@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/Pieraqua/pieraqua-website/issues"
   },
-  "homepage": "https://github.com/Pieraqua/pieraqua-website#readme"
+  "homepage": "https://github.com/Pieraqua/pieraqua-website#readme",
+  "devDependencies": {
+    "@types/node": "^22.1.0"
+  }
 }

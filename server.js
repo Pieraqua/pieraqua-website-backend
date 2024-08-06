@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+const blogposts = require('./scripts/blogposts/blogposts.js')
+
 app.use(express.urlencoded({extended: true}));
 
 app.use(function (req, res, next) {
@@ -26,6 +28,14 @@ app.get('/teste', (req, res) => {
 
 app.get('/', (req, res) => {
   res.send('Hello from App Engine!');
+});
+
+app.get('/blogs', (req, res) => {
+  res.send(blogposts.getAllFolders());
+});
+
+app.get('/blogs/:nome_blog', (req, res) => {
+  res.send(blogposts.getAllFiles(req.params.nome_blog));
 });
 
 // Listen to the App Engine-specified port, or 8080 otherwise
