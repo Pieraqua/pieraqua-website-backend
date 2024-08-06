@@ -4,11 +4,13 @@ const path = require('path');
 
 app.use(express.urlencoded({extended: true}));
 
-app.use((req, res, next) => { 
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080"); 
-  res.header( "Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization" ); 
-  next(); 
-});
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  next();
+  //...
+ });
 
 app.post('/submit', (req,res) => {
     Logger.log({
@@ -27,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 // Listen to the App Engine-specified port, or 8080 otherwise
-const PORT = process.env.PORT || 8080;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });
