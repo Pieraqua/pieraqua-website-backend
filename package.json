@@ -9,10 +9,9 @@
   "description": "My personal website.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "start_backend": "node server.js",
-    "start_frontend": "vite"
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
